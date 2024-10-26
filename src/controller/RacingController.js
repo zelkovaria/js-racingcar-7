@@ -2,7 +2,7 @@ import InputView from "../views/InputView.js";
 
 class RacingController {
   async #createCarNames() {
-    const carNames = await InputView.readInput();
+    const carNames = await InputView.readCarNames();
 
     return carNames;
   }
