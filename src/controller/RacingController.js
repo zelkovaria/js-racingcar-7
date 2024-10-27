@@ -1,6 +1,7 @@
 import Car from "../models/Car.js";
 import { CarValidator, PlayValidator } from "../Validator.js";
 import InputView from "../views/InputView.js";
+import OutputView from "../views/OutputView.js";
 
 class RacingController {
   async #setCarNames() {
@@ -32,9 +33,10 @@ class RacingController {
 
   async run() {
     const cars = await this.#initCars();
-
     cars.startRace();
-    console.log(cars.getResult());
+
+    const winners = cars.getWinners();
+    OutputView.printWinners(winners);
   }
 }
 

@@ -1,4 +1,4 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { Console, MissionUtils } from "@woowacourse/mission-utils";
 
 export default class Car {
   #cars;
@@ -26,10 +26,27 @@ export default class Car {
     });
   }
 
+  #printCurrentDistances() {
+    this.#cars.forEach((car) => {
+      const distance = "-".repeat(this.#distance[car]);
+      Console.print(`${car} : ${distance}`);
+    });
+    Console.print("");
+  }
+
   startRace() {
     for (let i = 0; i < this.#playCount; i++) {
       this.#moveCar();
+      this.#printCurrentDistances();
     }
+  }
+
+  getWinners() {
+    const maxDistance = Math.max(...Object.values(this.#distance));
+    const winners = this.#cars.filter(
+      (car) => this.#distance[car] === maxDistance
+    );
+    return winners;
   }
 
   getResult() {
