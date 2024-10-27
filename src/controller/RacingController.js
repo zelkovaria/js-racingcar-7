@@ -1,4 +1,4 @@
-import { Console } from "@woowacourse/mission-utils";
+import Car from "../models/Car.js";
 import { CarValidator, PlayValidator } from "../Validator.js";
 import InputView from "../views/InputView.js";
 
@@ -23,9 +23,16 @@ class RacingController {
     }
   }
 
+  async #initCars() {
+    const carNames = await this.#setCarNames();
+    const playCount = await this.#setPlayCount();
+
+    return new Car(carNames, playCount);
+  }
+
   async run() {
-    await this.#setCarNames();
-    await this.#setPlayCount();
+    const cars = await this.#initCars();
+    console.log(cars.getCars());
   }
 }
 

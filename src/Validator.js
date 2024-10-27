@@ -38,7 +38,9 @@ export class PlayValidator {
   }
 
   static validate(playCount) {
-    this.#isNumber(playCount);
-    this.#isPositiveNum(playCount);
+    const parsedPlayCount = parseInt(playCount, 10);
+
+    this.#isNumber(parsedPlayCount);
+    this.#isPositiveNum(parsedPlayCount);
   }
 }
