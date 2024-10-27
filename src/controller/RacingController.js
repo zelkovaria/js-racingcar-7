@@ -33,6 +33,7 @@ class RacingController {
 
   async run() {
     const cars = await this.#initCars();
+    OutputView.printStartMessage();
     cars.startRace();
 
     const winners = cars.getWinners();
