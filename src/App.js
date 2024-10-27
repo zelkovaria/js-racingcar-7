@@ -2,8 +2,12 @@ import RacingController from "./controller/RacingController.js";
 
 class App {
   async run() {
-    const racingController = new RacingController();
-    racingController.run();
+    try {
+      const racingController = new RacingController();
+      await racingController.run();
+    } catch (error) {
+      throw error;
+    }
   }
 }
 

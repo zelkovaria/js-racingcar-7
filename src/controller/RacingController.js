@@ -32,12 +32,16 @@ class RacingController {
   }
 
   async run() {
-    const cars = await this.#initCars();
-    OutputView.printStartMessage();
-    cars.startRace();
+    try {
+      const cars = await this.#initCars();
+      OutputView.printStartMessage();
+      cars.startRace();
 
-    const winners = cars.getWinners();
-    OutputView.printWinners(winners);
+      const winners = cars.getWinners();
+      OutputView.printWinners(winners);
+    } catch (e) {
+      throw e;
+    }
   }
 }
 
