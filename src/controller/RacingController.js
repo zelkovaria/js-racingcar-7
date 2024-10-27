@@ -32,7 +32,9 @@ class RacingController {
 
   async run() {
     const cars = await this.#initCars();
-    console.log(cars.getCars());
+
+    cars.startRace();
+    console.log(cars.getResult());
   }
 }
 
