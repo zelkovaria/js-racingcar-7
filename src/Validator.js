@@ -26,12 +26,19 @@ export class CarValidator {
 
 export class PlayValidator {
   static #isPositiveNum(playCount) {
-    if (playCount < 0) {
+    if (playCount <= 0) {
       throw new Error("[ERROR] 시도 횟수는 양수값으로 입력해주세요.");
     }
   }
 
+  static #isNumber(playCount) {
+    if (typeof playCount !== "number") {
+      throw new Error("[ERROR] 시도 횟수는 문자가 아닌 숫자를 입력해주세요.");
+    }
+  }
+
   static validate(playCount) {
+    this.#isNumber(playCount);
     this.#isPositiveNum(playCount);
   }
 }
