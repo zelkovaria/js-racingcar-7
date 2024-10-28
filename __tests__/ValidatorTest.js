@@ -18,3 +18,13 @@ describe("자동차 유효성 테스트", () => {
     }).toThrow(ERROR_MESSAGE.UNIQUE_CAR_NAMES);
   });
 });
+
+describe("경기 횟수 유효성 테스트", () => {
+  test("입력 값의 타입 테스트", async () => {
+    const invalidPlayCount = -3;
+
+    expect(() => {
+      PlayValidator.validate(invalidPlayCount);
+    }).toThrow(ERROR_MESSAGE.INVALID_POSITIVE_NUM);
+  });
+});
