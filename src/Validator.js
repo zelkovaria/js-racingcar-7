@@ -31,13 +31,13 @@ export class PlayValidator {
   }
 
   static #isNumber(playCount) {
-    if (typeof playCount !== "number") {
+    if (typeof playCount !== "number" || isNaN(playCount)) {
       throw new Error(ERROR_MESSAGE.INVALID_COUNT_TYPE);
     }
   }
 
   static validate(playCount) {
-    const parsedPlayCount = parseInt(playCount, 10);
+    const parsedPlayCount = Number(playCount);
 
     this.#isNumber(parsedPlayCount);
     this.#isPositiveNum(parsedPlayCount);

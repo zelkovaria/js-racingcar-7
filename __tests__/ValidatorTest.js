@@ -20,7 +20,7 @@ describe("자동차 유효성 테스트", () => {
 });
 
 describe("경기 횟수 유효성 테스트", () => {
-  test("입력 값의 타입 테스트", async () => {
+  test("입력 값의 양수 테스트", async () => {
     const invalidPlayCount = -3;
 
     expect(() => {
