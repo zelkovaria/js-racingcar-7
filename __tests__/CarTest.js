@@ -11,4 +11,15 @@ describe("자동차 생성자 테스트", () => {
     expect(result["hyein"]).toBe(0);
     expect(result["pobi"]).toBe(0);
   });
+
+  test("우승자 선정 테스트", () => {
+    const testCars = ["hyein", "pobi"];
+    const testPlayCount = 3;
+
+    const car = new Car(testCars, testPlayCount);
+    car.startRace();
+
+    const winners = car.getWinners();
+    expect(winners.length).toBeGreaterThan(0);
+  });
 });
