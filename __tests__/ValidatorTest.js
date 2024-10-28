@@ -27,4 +27,12 @@ describe("경기 횟수 유효성 테스트", () => {
       PlayValidator.validate(invalidPlayCount);
     }).toThrow(ERROR_MESSAGE.INVALID_POSITIVE_NUM);
   });
+
+  test("입력 값의 타입 테스트", async () => {
+    const invalidPlayCount = "#";
+
+    expect(() => {
+      PlayValidator.validate(invalidPlayCount);
+    }).toThrow(ERROR_MESSAGE.INVALID_COUNT_TYPE);
+  });
 });
